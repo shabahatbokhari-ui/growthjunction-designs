@@ -1,0 +1,11 @@
+{
+  "name": "growthjunction-designs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Design direction mockups for Growth Junction website redesign",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "ship": "git add . && git commit -m \"deploy\" && git push && wrangler deploy",
+    "preview": "wrangler dev"
+  }
+}
