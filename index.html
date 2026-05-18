@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Design Direction Review</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Inter","Helvetica Neue",Arial,sans-serif;background:#F4F4F0;color:#1A1A1A;padding:48px 32px;line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:42px;letter-spacing:-.02em;font-weight:600;margin-bottom:12px}
+  .sub{font-size:18px;color:#666;margin-bottom:48px;max-width:720px;line-height:1.55}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+  .card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #E5E1D6;text-decoration:none;color:inherit;transition:transform .15s, box-shadow .15s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+  .preview{height:220px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Georgia,serif;font-size:24px;letter-spacing:.04em;text-align:center;padding:24px}
+  .p1{background:linear-gradient(135deg,#0E1A2B 0%,#3B6CB1 100%)}
+  .p2{background:linear-gradient(135deg,#0A1628 0%,#2B5BA9 100%)}
+  .p3{background:linear-gradient(135deg,#C76B4E 0%,#7B8F73 100%)}
+  .body{padding:28px 24px 32px}
+  .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#F2EFE7;color:#666;margin-bottom:12px}
+  h3{font-size:20px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+  p.desc{font-size:15px;color:#555;line-height:1.55;margin-bottom:16px}
+  ul.props{list-style:none;font-size:13px;color:#444;padding-top:14px;border-top:1px solid #EEE}
+  ul.props li{padding:4px 0;display:flex;gap:8px}
+  ul.props li b{font-weight:600;color:#222;min-width:64px}
+  .open{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:14px;font-weight:600;color:#2B5BA9}
+  .compare{background:#fff;border:1px solid #E5E1D6;border-radius:12px;padding:32px;margin-top:32px}
+  .compare h2{font-size:22px;margin-bottom:18px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #EEE;vertical-align:top}
+  th{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;background:#FAFAF7}
+  td:first-child{font-weight:600;width:140px}
+  .note{margin-top:24px;font-size:14px;color:#666;background:#FAFAF7;padding:20px;border-radius:8px;border-left:3px solid #C76B4E}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Growth Junction · Design Direction Review</h1>
+  <p class="sub">Three contrasting directions for the new growthjunction.ae. Each is a complete, self-contained HTML mockup. Open in any browser. No setup needed. Pick the direction that feels closest, not the one that is most finished.</p>
+
+  <div class="grid">
+    <a class="card" href="01-editorial-premium.html" target="_blank">
+      <div class="preview p1">Editorial Premium</div>
+      <div class="body">
+        <span class="tag">Direction 01</span>
+        <h3>Editorial Premium</h3>
+        <p class="desc">Serif voice. Long-form. Reads like a journal of practice rather than a service brochure. Quiet authority.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>HBR, BetterUp, a senior practice that does not need to shout</span></li>
+          <li><b>Best for</b><span>Buyers who care about depth, IP, and intellectual seriousness</span></li>
+          <li><b>Risk</b><span>Can read aloof. Needs strong writing in production</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="02-boutique-advisory.html" target="_blank">
+      <div class="preview p2">Boutique Advisory</div>
+      <div class="body">
+        <span class="tag">Direction 02</span>
+        <h3>Boutique Advisory</h3>
+        <p class="desc">Clean sans, structured grids, case-work led. Senior advisory tone with proof above the fold.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>A leaner Korn Ferry, a more confident Heidrick. Pragmatic, modern</span></li>
+          <li><b>Best for</b><span>UAE CHRO and CEO buyers who scan for proof and structure</span></li>
+          <li><b>Risk</b><span>Most "expected" of the three. Differentiation comes from copy and case work, not design</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="03-human-first.html" target="_blank">
+      <div class="preview p3">Human First</div>
+      <div class="body">
+        <span class="tag">Direction 03</span>
+        <h3>Human First</h3>
+        <p class="desc">Warm palette, big faces, quotes from real practice, founder voice anchored above the fold. Coach-led, not corporate-led.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>A senior practitioner you would actually call when the week is hard</span></li>
+          <li><b>Best for</b><span>Personal credibility plays. Marshall Goldsmith methodology shown, not just claimed</span></li>
+          <li><b>Risk</b><span>Closer to "coach" than "advisor". May feel light for enterprise procurement</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="compare">
+    <h2>How they differ at a glance</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>01 · Editorial</th>
+          <th>02 · Boutique</th>
+          <th>03 · Human</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Typography</td><td>Georgia serif lead</td><td>Inter sans, clean</td><td>Mixed serif/sans, warm</td></tr>
+        <tr><td>Palette</td><td>Cream, ink, blue, gold accent</td><td>White, ink, blue, sky</td><td>Bone, terracotta, sage, blue</td></tr>
+        <tr><td>Hero device</td><td>Editorial headline + lede</td><td>Headline + stat grid + CTA</td><td>Faces + live testimonial</td></tr>
+        <tr><td>Service grid</td><td>2 cols, numbered, prose</td><td>3 cols, iconed, hover lift</td><td>3 cols, tagged, named coach</td></tr>
+        <tr><td>Founder presence</td><td>Implicit, byline only</td><td>Hidden until Team page</td><td>Above the fold, signed</td></tr>
+        <tr><td>Production cost</td><td>High writing burden</td><td>Mid — needs proof points</td><td>High photography burden</td></tr>
+        <tr><td>Who buys it</td><td>Curious CEO, board chair</td><td>CHRO with procurement</td><td>Leader on a hard week</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>How to use these.</b> Open each in a browser. Spend 30 seconds, not 30 minutes. The first one that makes you say <em>"yes, that is us"</em> is the direction. Hybrid is fine. We can lift the hero of one onto the structure of another. The point of three contrasting directions is to surface preference, not to ship any of these as-is.
+  </div>
+</div>
+</body>
+</html>

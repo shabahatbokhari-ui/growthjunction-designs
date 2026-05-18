@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Editorial Premium</title>
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --paper:#F7F3EC;
+    --paper-warm:#EFE7D9;
+    --accent:#B5894A;
+    --blue:#3B6CB1;
+    --muted:#6B6657;
+    --rule:#D9CFBC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:Georgia,"Source Serif Pro","Times New Roman",serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:28px 32px;max-width:1180px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;letter-spacing:.02em}
+  .brand-mark{width:34px;height:34px;border-radius:50%;background:var(--blue);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Georgia,serif}
+  .brand-name{font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+  nav a:hover{border-bottom-color:var(--accent)}
+
+  .hero{padding:80px 0 60px;border-bottom:1px solid var(--rule)}
+  .hero .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-family:"Helvetica Neue",Arial,sans-serif;margin-bottom:24px}
+  .hero h1{font-size:84px;line-height:1.02;letter-spacing:-.02em;font-weight:400;max-width:900px}
+  .hero h1 em{font-style:italic;color:var(--blue)}
+  .hero .lede{margin-top:40px;font-size:22px;line-height:1.5;color:var(--muted);max-width:660px}
+  .hero .meta{margin-top:48px;display:flex;gap:48px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:"Helvetica Neue",Arial,sans-serif}
+
+  .featured{padding:80px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:280px 1fr;gap:80px}
+  .featured .label{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-family:"Helvetica Neue",Arial,sans-serif}
+  .featured .label-row{display:flex;flex-direction:column;gap:8px}
+  .featured h2{font-size:42px;line-height:1.15;font-weight:400;letter-spacing:-.01em;margin-bottom:24px}
+  .featured p{max-width:620px;color:var(--muted);font-size:19px}
+  .pullquote{margin-top:48px;padding-left:24px;border-left:2px solid var(--accent);font-style:italic;font-size:24px;line-height:1.4;color:var(--ink);max-width:620px}
+  .pullquote-cite{margin-top:16px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-style:normal;font-family:"Helvetica Neue",Arial,sans-serif}
+
+  .services{padding:80px 0;border-bottom:1px solid var(--rule)}
+  .services-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+  .services-head h2{font-size:48px;font-weight:400;letter-spacing:-.01em;max-width:560px}
+  .services-head .ix{font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .svc{background:var(--paper);padding:40px 36px;min-height:200px}
+  .svc .num{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+  .svc h3{font-size:24px;font-weight:400;line-height:1.2;margin-bottom:14px}
+  .svc p{font-size:16px;color:var(--muted);line-height:1.55}
+
+  .industries{padding:80px 0;background:var(--paper-warm);margin:80px -32px 0}
+  .industries-inner{max-width:1180px;margin:0 auto;padding:0 32px}
+  .industries h2{font-size:36px;font-weight:400;letter-spacing:-.01em;margin-bottom:40px}
+  .ind-list{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:18px;color:var(--ink)}
+  .ind-list span{padding:6px 0;border-bottom:1px solid var(--rule)}
+
+  footer{padding:64px 0;border-top:1px solid var(--rule);margin-top:0;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
+  footer .signoff{font-size:32px;font-weight:400;letter-spacing:-.01em;max-width:720px;line-height:1.2}
+  footer .signoff em{font-style:italic;color:var(--blue)}
+  .cta{display:inline-block;padding:18px 32px;background:var(--ink);color:var(--paper);font-family:"Helvetica Neue",Arial,sans-serif;text-decoration:none;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+  .colophon{padding:32px 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand"><span class="brand-mark">G</span><span class="brand-name">Growth Junction</span></div>
+  <ul>
+    <li><a href="#">Practice</a></li>
+    <li><a href="#">Approach</a></li>
+    <li><a href="#">People</a></li>
+    <li><a href="#">Field Notes</a></li>
+    <li><a href="#">Begin</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Issue No. 01 · Dubai · Karachi · Bangkok</div>
+    <h1>The work of <em>leadership</em> is the work of <em>becoming</em>.</h1>
+    <p class="lede">Growth Junction partners with chief executives and boards on the human side of transformation. Twenty years of practice across the world's most demanding rooms. One conversation at a time.</p>
+    <div class="meta">
+      <span>2,000+ Coachees</span>
+      <span>Marshall Goldsmith Certified</span>
+      <span>Est. 2021</span>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="label-row">
+      <span class="label">A note from the founder</span>
+      <span class="label" style="color:var(--muted)">— Sulemen A. Khan</span>
+    </div>
+    <div>
+      <h2>Strategy fails on the soft stuff. We start there.</h2>
+      <p>Boards approve the deck. Executives believe the plan. And then the rollout dies on the same fault lines it always does: trust, identity, and the quiet politics of who loses what. We do not pretend to remove that friction. We help leaders see it before it costs them the year.</p>
+      <div class="pullquote">
+        "The hardest part of any transformation is the part you cannot put in a slide. That is where we work."
+        <div class="pullquote-cite">— Founder's Letter, 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="services-head">
+      <h2>A small practice. A long shelf of work.</h2>
+      <div class="ix">Eight pillars</div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="num">01</div>
+        <h3>Executive Coaching</h3>
+        <p>Quiet, confidential rooms for chief executives and their direct reports. One-on-one, team, and conflict resolution work.</p>
+      </div>
+      <div class="svc">
+        <div class="num">02</div>
+        <h3>Organizational Design</h3>
+        <p>Structure, roles, decision rights. We help leaders re-shape the org chart so the strategy can actually breathe.</p>
+      </div>
+      <div class="svc">
+        <div class="num">03</div>
+        <h3>Talent &amp; Succession</h3>
+        <p>Identifying high-potential leaders, building succession runways, and the leadership programmes that keep them.</p>
+      </div>
+      <div class="svc">
+        <div class="num">04</div>
+        <h3>Performance Systems</h3>
+        <p>Aligning individual goals to strategy in a way the business actually uses. Not the framework. The behaviour.</p>
+      </div>
+      <div class="svc">
+        <div class="num">05</div>
+        <h3>Culture &amp; Engagement</h3>
+        <p>Diagnosing the gap between the culture you say you have and the one your people experience. Closing it.</p>
+      </div>
+      <div class="svc">
+        <div class="num">06</div>
+        <h3>Diversity, Equity, Inclusion</h3>
+        <p>Beyond the policy. Building organisations that genuinely benefit from the difference they hire.</p>
+      </div>
+      <div class="svc">
+        <div class="num">07</div>
+        <h3>Assessments</h3>
+        <p>Globally recognised instruments, interpreted by clinicians and coaches. Not a report. A conversation.</p>
+      </div>
+      <div class="svc">
+        <div class="num">08</div>
+        <h3>Mental Health at Work</h3>
+        <p>Confidential support, manager training, and well-being programmes that take the work, and the worker, seriously.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries">
+    <div class="industries-inner">
+      <h2>The rooms we have worked in.</h2>
+      <div class="ind-list">
+        <span>Banking</span><span>Telecommunications</span><span>Energy</span>
+        <span>Healthcare</span><span>FMCG</span><span>Insurance</span>
+        <span>Software &amp; Technology</span><span>Academia</span>
+        <span>Global Development</span><span>International Donor Agencies</span>
+        <span>Utilities</span><span>Textile</span><span>Advertising</span>
+        <span>Think Tanks</span><span>Development Sector</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="signoff">If your strategy depends on the people executing it, the work is <em>human</em> before it is anything else.</div>
+    <a href="#" class="cta">Begin a conversation</a>
+  </footer>
+
+  <div class="colophon">
+    <span>Growth Junction · Dubai · Karachi · Bangkok</span>
+    <span>info@growthjunction.ae</span>
+    <span>© 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
