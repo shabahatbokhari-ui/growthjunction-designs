@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Organic / Natural</title>
+<style>
+  :root{
+    --ink:#2D2A24;
+    --sand:#EDE3D0;
+    --sand-deep:#E0D2B6;
+    --paper:#F6F0E2;
+    --terracotta:#B4623D;
+    --terracotta-deep:#8C4A2A;
+    --sage:#7A8F6C;
+    --sage-deep:#536348;
+    --clay:#C68B5C;
+    --muted:#6F6859;
+    --rule:#D2C5A5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Hoefler Text","Apple Garamond","EB Garamond",Garamond,Georgia,serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body{
+    background:
+      radial-gradient(900px 700px at 90% 5%, rgba(180,98,61,.10) 0%, transparent 55%),
+      radial-gradient(800px 600px at 5% 60%, rgba(122,143,108,.10) 0%, transparent 55%),
+      var(--paper);
+  }
+  .hand{font-family:"Hoefler Text","Apple Chancery","Snell Roundhand","Lucida Bright Italic",cursive;font-style:italic}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 36px}
+
+  /* Nav: minimal, soft */
+  nav{padding:32px 36px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+  .brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink)}
+  .brand-mark{width:48px;height:48px;flex-shrink:0}
+  .brand-mark svg{width:100%;height:100%}
+  .brand-name{display:flex;flex-direction:column;line-height:1.05}
+  .brand-name .n{font-size:21px;font-weight:400;letter-spacing:.005em}
+  .brand-name .t{margin-top:4px;font-family:"Iowan Old Style","Hoefler Text",Georgia,serif;font-size:12px;font-style:italic;color:var(--sage-deep);letter-spacing:.02em}
+  nav ul{display:flex;gap:34px;list-style:none;font-size:15px;font-style:italic;font-weight:400}
+  nav a{color:var(--ink);text-decoration:none;opacity:.8;transition:opacity .2s,color .2s}
+  nav a:hover{opacity:1;color:var(--terracotta-deep)}
+  .nav-cta{font-style:normal;padding:10px 22px;border:1px solid var(--ink);border-radius:999px;opacity:1!important}
+
+  /* Hero: asymmetric, organic */
+  .hero{padding:80px 0 120px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:center}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:14px;color:var(--terracotta-deep);margin-bottom:32px;font-style:italic}
+  .hero-eyebrow svg{width:18px;height:18px}
+  .hero h1{
+    font-size:clamp(48px,7vw,92px);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    font-weight:400;
+    margin-bottom:36px;
+  }
+  .hero h1 .hand{color:var(--terracotta-deep);font-weight:400}
+  .hero h1 .sage{color:var(--sage-deep);font-style:italic;font-weight:400}
+  .hero h1 .underline{background:linear-gradient(180deg,transparent 78%, rgba(180,98,61,.30) 78%);padding:0 4px}
+  .hero p{font-size:21px;color:var(--muted);max-width:520px;line-height:1.65;margin-bottom:40px}
+  .hero-actions{display:flex;align-items:center;gap:24px}
+  .hero-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;background:var(--ink);color:var(--paper);border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;font-family:"Iowan Old Style",Georgia,serif;letter-spacing:.005em;transition:transform .25s,background .25s}
+  .hero-cta:hover{transform:translateY(-2px);background:var(--terracotta-deep)}
+  .hero-cta .arr{width:24px;height:24px;border-radius:50%;background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:13px}
+  .hero-aside{font-size:14px;font-style:italic;color:var(--muted);max-width:200px;line-height:1.5}
+
+  /* Hero collage */
+  .collage{position:relative;height:540px}
+  .blob{position:absolute;border-radius:50% 60% 55% 45% / 50% 55% 45% 50%;overflow:hidden}
+  .blob-1{
+    width:340px;height:380px;
+    top:0;left:20px;
+    background:linear-gradient(160deg, var(--sage) 0%, var(--sage-deep) 100%);
+    transform:rotate(-6deg);
+    box-shadow:0 30px 60px rgba(83,99,72,.18);
+  }
+  .blob-2{
+    width:260px;height:300px;
+    top:140px;right:0;
+    border-radius:55% 45% 50% 50% / 60% 50% 50% 40%;
+    background:linear-gradient(140deg, var(--clay) 0%, var(--terracotta-deep) 100%);
+    transform:rotate(8deg);
+    box-shadow:0 30px 60px rgba(140,74,42,.20);
+  }
+  .blob-3{
+    width:200px;height:220px;
+    bottom:0;left:90px;
+    border-radius:50% 55% 45% 55% / 55% 45% 55% 45%;
+    background:linear-gradient(140deg, var(--sand-deep) 0%, var(--clay) 100%);
+    transform:rotate(-12deg);
+    box-shadow:0 24px 48px rgba(198,139,92,.20);
+  }
+  .blob-label{position:absolute;background:var(--paper);padding:8px 16px;border-radius:999px;font-size:12px;font-style:italic;color:var(--ink);box-shadow:0 8px 20px rgba(45,42,36,.10)}
+  .bl-1{top:60px;right:-10px}
+  .bl-2{bottom:80px;left:200px}
+  .bl-3{top:280px;left:-12px}
+
+  /* Hand-quote bubble */
+  .hero-quote{position:absolute;bottom:-40px;right:30px;background:var(--paper);padding:22px 26px;border-radius:24px;max-width:280px;font-size:14px;line-height:1.5;color:var(--ink);font-style:italic;box-shadow:0 24px 60px rgba(45,42,36,.10);border:1px solid var(--rule);z-index:2}
+  .hero-quote::before{content:"";position:absolute;top:-6px;left:32px;width:14px;height:14px;background:var(--paper);border-top:1px solid var(--rule);border-left:1px solid var(--rule);transform:rotate(45deg)}
+  .hero-quote .src{display:block;margin-top:10px;font-size:12px;color:var(--muted);font-style:normal;letter-spacing:.04em}
+
+  /* Trust strip */
+  .trust{padding:36px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(237,227,208,.5);text-align:center}
+  .trust-label{font-size:12px;font-style:italic;color:var(--sage-deep);margin-bottom:14px}
+  .trust-row{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap;font-size:17px;font-style:italic;color:var(--ink);opacity:.75}
+  .trust-row .div{color:var(--terracotta-deep);font-size:10px;opacity:.6}
+
+  /* Founder letter: wellness-led, slow */
+  .founder{padding:140px 0;position:relative}
+  .founder-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .founder-portrait{position:relative;aspect-ratio:4/5;border-radius:50% 55% 45% 50% / 55% 50% 50% 45%;overflow:hidden;background:linear-gradient(150deg, var(--clay) 0%, var(--sage-deep) 100%);box-shadow:0 40px 100px rgba(45,42,36,.15)}
+  .founder-portrait::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 32% 38%,rgba(255,255,255,.25),transparent 55%)}
+  .founder-meta{position:absolute;top:30px;right:-30px;background:var(--paper);padding:12px 20px;border-radius:999px;font-size:13px;font-style:italic;color:var(--ink);box-shadow:0 12px 28px rgba(45,42,36,.10);border:1px solid var(--rule)}
+  .founder-meta b{font-style:normal;font-weight:600;color:var(--terracotta-deep)}
+
+  .founder-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--terracotta-deep);font-style:italic;margin-bottom:24px}
+  .founder-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--terracotta-deep)}
+  .founder h2{font-size:54px;line-height:1.1;letter-spacing:-.015em;font-weight:400;margin-bottom:28px}
+  .founder h2 em{font-style:italic;color:var(--terracotta-deep)}
+  .founder p{font-size:18px;color:var(--ink);line-height:1.75;margin-bottom:20px;max-width:580px}
+  .founder p:first-of-type::first-letter{font-size:64px;font-family:"Hoefler Text","Apple Chancery",serif;float:left;line-height:.8;margin:8px 12px -4px 0;color:var(--terracotta-deep);font-style:italic;font-weight:400}
+  .founder-sig{margin-top:36px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--rule);padding-top:24px}
+  .sig-name{font-style:italic;font-size:22px;color:var(--ink);font-weight:400}
+  .sig-title{font-size:13px;color:var(--muted);font-style:italic;margin-top:4px}
+
+  /* Two pillars: mental health LEADS */
+  .pillars{padding:140px 0;background:linear-gradient(180deg, transparent 0%, rgba(237,227,208,.6) 30%, rgba(237,227,208,.6) 70%, transparent 100%);position:relative}
+  .section-head{text-align:center;max-width:760px;margin:0 auto 72px}
+  .section-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-style:italic;color:var(--sage-deep);margin-bottom:18px}
+  .section-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--sage-deep)}
+  .section-head h2{font-size:56px;line-height:1.1;letter-spacing:-.02em;font-weight:400;margin-bottom:20px}
+  .section-head h2 em{font-style:italic;color:var(--terracotta-deep)}
+  .section-head h2 .sage{font-style:italic;color:var(--sage-deep)}
+  .section-head p{font-size:19px;color:var(--muted);line-height:1.65;max-width:600px;margin:0 auto;font-style:italic}
+
+  .pill-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .pill-card{background:var(--paper);border-radius:32px;padding:48px 44px;position:relative;border:1px solid var(--rule);transition:transform .3s,box-shadow .3s}
+  .pill-card:hover{transform:translateY(-4px);box-shadow:0 32px 80px rgba(45,42,36,.10)}
+  .pill-card.lead{background:linear-gradient(150deg, rgba(180,98,61,.06) 0%, var(--paper) 60%);border-color:rgba(180,98,61,.25)}
+  .pill-illus{position:absolute;top:30px;right:30px;width:80px;height:80px;opacity:.5}
+  .pill-illus svg{width:100%;height:100%}
+  .pill-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta-deep);font-weight:600;margin-bottom:16px}
+  .pill-card.lead .pill-tag{color:var(--terracotta-deep)}
+  .pill-card.lead .pill-tag::before{content:"✦ ";color:var(--terracotta);margin-right:4px}
+  .pill-card h3{font-size:34px;line-height:1.15;letter-spacing:-.015em;font-weight:400;margin-bottom:18px;max-width:380px}
+  .pill-card h3 em{font-style:italic;color:var(--terracotta-deep)}
+  .pill-card.lead h3 em{color:var(--terracotta)}
+  .pill-card > p{font-size:17px;color:var(--ink);line-height:1.7;margin-bottom:28px;max-width:480px}
+  .pill-card ul{list-style:none;border-top:1px solid var(--rule);padding-top:24px;display:flex;flex-direction:column;gap:14px;font-size:16px;font-style:italic;color:var(--muted)}
+  .pill-card li{display:flex;gap:14px;align-items:baseline}
+  .pill-card li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--terracotta);margin-top:6px;flex-shrink:0}
+  .pill-card.lead li::before{background:var(--terracotta-deep)}
+
+  /* Services: irregular flow */
+  .services{padding:140px 0;position:relative;overflow:hidden}
+  .leaf{position:absolute;opacity:.12;pointer-events:none}
+  .leaf-1{top:200px;left:-60px;width:200px;height:200px;transform:rotate(-20deg)}
+  .leaf-2{bottom:200px;right:-80px;width:240px;height:240px;transform:rotate(30deg)}
+  .leaf svg{width:100%;height:100%}
+  .svc-flow{display:grid;grid-template-columns:repeat(2,1fr);gap:48px}
+  .svc{padding:36px 32px;border-top:1px solid var(--rule);position:relative}
+  .svc::before{content:"";position:absolute;top:-1px;left:0;width:48px;height:2px;background:var(--terracotta-deep)}
+  .svc-num{font-family:"Hoefler Text","Apple Chancery",serif;font-size:34px;font-style:italic;color:var(--sage-deep);line-height:1;margin-bottom:14px;font-weight:400}
+  .svc h3{font-size:24px;font-weight:400;letter-spacing:-.005em;margin-bottom:12px;line-height:1.25}
+  .svc h3 em{font-style:italic;color:var(--terracotta-deep)}
+  .svc p{font-size:16px;color:var(--muted);line-height:1.7}
+  .svc-tag{margin-top:18px;display:inline-block;padding:4px 12px;border-radius:999px;font-size:11px;font-style:italic;color:var(--sage-deep);background:rgba(122,143,108,.12)}
+
+  /* Quote */
+  .quote-band{padding:160px 0;text-align:center;position:relative;overflow:hidden}
+  .quote-band .blob-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:500px;border-radius:50% 60% 50% 55% / 55% 50% 60% 50%;background:radial-gradient(circle at 40% 40%, rgba(180,98,61,.10), transparent 65%);pointer-events:none}
+  .quote-band .qm{font-family:"Hoefler Text","Apple Chancery",serif;font-size:120px;font-style:italic;color:var(--terracotta);opacity:.4;line-height:.3;margin-bottom:16px;font-weight:400}
+  .quote-band blockquote{font-size:48px;line-height:1.3;font-weight:400;font-style:italic;max-width:920px;margin:0 auto 36px;letter-spacing:-.005em;color:var(--ink);position:relative;z-index:1}
+  .quote-band blockquote em{font-style:normal;color:var(--terracotta-deep)}
+  .quote-cite{display:inline-flex;align-items:center;gap:14px;font-size:14px;color:var(--muted);font-style:italic}
+  .quote-cite .av{width:36px;height:36px;border-radius:50% 60% 50% 55% / 55% 50% 60% 50%;background:linear-gradient(135deg, var(--clay), var(--sage-deep))}
+
+  /* Industries: handwritten list */
+  .industries{padding:120px 0}
+  .industries-inner{max-width:980px;margin:0 auto;text-align:center}
+  .industries .section-head{margin-bottom:48px}
+  .ind-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+  .ind-leaf{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;font-size:16px;font-style:italic;color:var(--ink);transition:all .25s}
+  .ind-leaf:hover{background:rgba(180,98,61,.06);border-color:rgba(180,98,61,.4);color:var(--terracotta-deep);transform:translateY(-1px)}
+  .ind-leaf .seed{width:6px;height:6px;border-radius:50%;background:var(--sage)}
+
+  /* Closing salon */
+  .salon{padding:160px 0;background:linear-gradient(160deg, var(--sage-deep) 0%, var(--terracotta-deep) 100%);color:var(--paper);position:relative;overflow:hidden;border-radius:60px 60px 0 0;margin-top:80px}
+  .salon-blob{position:absolute;border-radius:50% 55% 50% 60% / 55% 50% 60% 50%;background:radial-gradient(circle at 30% 30%, rgba(246,240,226,.25), transparent 60%);pointer-events:none}
+  .sb-1{width:600px;height:600px;top:-200px;right:-180px}
+  .sb-2{width:400px;height:400px;bottom:-100px;left:-100px}
+  .salon-content{text-align:center;position:relative;z-index:1}
+  .salon .section-eyebrow{color:var(--sand)}
+  .salon .section-eyebrow .dot{background:var(--sand)}
+  .salon h2{font-size:64px;line-height:1.08;letter-spacing:-.02em;font-weight:400;max-width:920px;margin:0 auto 28px;color:var(--paper)}
+  .salon h2 em{font-style:italic;color:var(--sand-deep)}
+  .salon p{font-size:20px;color:rgba(246,240,226,.85);max-width:560px;margin:0 auto 44px;line-height:1.65;font-style:italic}
+  .salon .hero-cta{background:var(--paper);color:var(--ink)}
+  .salon .hero-cta:hover{background:var(--sand);color:var(--terracotta-deep);transform:translateY(-2px)}
+  .salon .hero-cta .arr{background:var(--ink);color:var(--paper)}
+
+  footer{padding:60px 0 36px;background:var(--ink);color:rgba(246,240,226,.75)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+  .foot-row a{color:rgba(246,240,226,.75);text-decoration:none}
+  .foot-row .brand-name .n,.foot-row .brand-name .t{color:var(--paper)}
+  .foot-row .brand-name .t{color:rgba(246,240,226,.55)}
+  .foot-divider{height:1px;background:rgba(246,240,226,.15);margin:32px 0}
+  .foot-tag{font-size:13px;font-style:italic;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="org1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#B4623D"/>
+            <stop offset="100%" stop-color="#7A8F6C"/>
+          </linearGradient>
+        </defs>
+        <path d="M24 4 C 35 6, 44 14, 44 24 C 44 36, 34 44, 24 44 C 14 44, 4 36, 4 24 C 4 14, 14 6, 24 4 Z" fill="url(#org1)"/>
+        <path d="M16 30 C 18 22, 22 18, 24 14 C 26 18, 30 22, 32 30 C 28 28, 20 28, 16 30 Z" fill="#F6F0E2" opacity="0.9"/>
+        <circle cx="24" cy="11" r="1.8" fill="#F6F0E2"/>
+      </svg>
+    </span>
+    <span class="brand-name">
+      <span class="n">Growth Junction</span>
+      <span class="t">a place for the work</span>
+    </span>
+  </a>
+  <ul>
+    <li><a href="#">Our practice</a></li>
+    <li><a href="#">The team</a></li>
+    <li><a href="#">Field notes</a></li>
+    <li><a href="#">Stories</a></li>
+    <li><a href="#" class="nav-cta">Begin</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 2 C 12 4, 14 7, 14 10 C 14 13, 12 16, 9 16 C 6 16, 4 13, 4 10 C 4 7, 6 4, 9 2 Z"/>
+            <path d="M9 6 C 10 8, 11 9, 11 11" stroke-linecap="round"/>
+          </svg>
+          A small senior practice, in residence in Dubai
+        </div>
+        <h1>Where <span class="hand">strategy</span> meets the <span class="sage">humans</span> <br><span class="underline">it depends on.</span></h1>
+        <p>We help leaders and their organisations grow with care. Slow where it matters, decisive where it counts. Twenty years of practice. The kettle is on.</p>
+        <div class="hero-actions">
+          <a href="#" class="hero-cta">Begin a conversation <span class="arr">→</span></a>
+          <span class="hero-aside">No deck. No pitch. A real thirty minutes.</span>
+        </div>
+      </div>
+      <div class="collage">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <span class="blob-label bl-1">Mental health, foundational</span>
+        <span class="blob-label bl-2">Coaching, slow</span>
+        <span class="blob-label bl-3">Org design, careful</span>
+        <div class="hero-quote">
+          "Few coaches know when to stop talking. The team at Growth Junction does."
+          <span class="src">Chief Executive Officer, UAE healthcare</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-label">Methodology &amp; certifications</div>
+    <div class="trust-row">
+      <span>Marshall Goldsmith Stakeholder Centered Coaching</span>
+      <span class="div">◇</span>
+      <span>Hogan</span>
+      <span class="div">◇</span>
+      <span>EMCC Senior Practitioner</span>
+      <span class="div">◇</span>
+      <span>ICF</span>
+    </div>
+  </div>
+</div>
+
+<section class="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div>
+        <div class="founder-portrait"></div>
+        <div class="founder-meta"><b>Sulemen Ansar Khan</b> · Founder</div>
+      </div>
+      <div>
+        <div class="founder-eyebrow"><span class="dot"></span>A note from our founder</div>
+        <h2>Strategy is the easy part. <em>The humans are the work.</em></h2>
+        <p>I have spent twenty years inside boardrooms and on the other side of the table. I have scaled organisations through their hardest seasons. I have sat with leaders the day after the layoff and the morning after the merger. I have learned that almost everything that matters in business sits below the slide deck.</p>
+        <p>I built Growth Junction because the work I cared about most kept being treated as soft, when in fact it is the hardest thing in the building. We are deliberately small. We work with leaders who want a real conversation more than they want a framework. We treat well-being not as a perk, but as the foundation that lets the rest of the work survive the year.</p>
+        <p>If something in this matches what you are sitting with, the kettle is on.</p>
+        <div class="founder-sig">
+          <div>
+            <div class="sig-name hand">Sulemen Ansar Khan</div>
+            <div class="sig-title">Founder · Growth Junction · Dubai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <header class="section-head">
+      <div class="section-eyebrow"><span class="dot"></span>The two practices</div>
+      <h2>The <em>foundation</em>, and the <span class="sage">work</span> it lets stand.</h2>
+      <p>Most advisory shops treat well-being as an add-on. We treat it as the ground floor. So we lead with it.</p>
+    </header>
+    <div class="pill-grid">
+      <div class="pill-card lead">
+        <div class="pill-illus">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B4623D" stroke-width="1.4" stroke-linecap="round">
+            <path d="M40 14 C 50 18, 56 26, 56 38 C 56 50, 50 60, 40 60 C 30 60, 24 50, 24 38 C 24 26, 30 18, 40 14 Z"/>
+            <path d="M40 22 C 44 28, 46 34, 46 40" />
+            <path d="M40 22 C 36 28, 34 34, 34 40" />
+            <path d="M28 44 C 32 46, 48 46, 52 44" />
+          </svg>
+        </div>
+        <div class="pill-tag">Practice 01 — Foundation</div>
+        <h3>Mental Health &amp; <em>Well-being</em> at Work</h3>
+        <p>The clinical-grade foundation that lets the rest of the work survive a hard quarter. Designed for organisations that mean it, not the ones that need a policy.</p>
+        <ul>
+          <li>Personal Assistance Programme design and implementation</li>
+          <li>Manager mental-health literacy training</li>
+          <li>Confidential counselling pathways</li>
+          <li>Stress, burnout, and resilience programmes</li>
+          <li>Crisis response and post-incident support</li>
+        </ul>
+      </div>
+      <div class="pill-card">
+        <div class="pill-illus">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#7A8F6C" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="40" cy="40" r="22"/>
+            <circle cx="32" cy="34" r="3" fill="#7A8F6C"/>
+            <circle cx="48" cy="34" r="3" fill="#7A8F6C"/>
+            <path d="M32 46 C 36 50, 44 50, 48 46"/>
+          </svg>
+        </div>
+        <div class="pill-tag">Practice 02 — Performance</div>
+        <h3>People &amp; <em>Organizational</em> Development</h3>
+        <p>The classical OD work, senior-led and confidential. For the rooms where the real decisions are made, the strategies that need to bend, and the leaders who carry it.</p>
+        <ul>
+          <li>Executive and team coaching, Marshall Goldsmith method</li>
+          <li>Organizational design and re-design</li>
+          <li>Talent management and succession runways</li>
+          <li>Performance and engagement systems</li>
+          <li>DEI strategy and execution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="leaf leaf-1">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#7A8F6C" stroke-width="1">
+      <path d="M100 20 C 140 60, 160 120, 100 180 C 40 120, 60 60, 100 20 Z"/>
+      <path d="M100 30 L 100 175"/>
+      <path d="M100 70 L 70 90"/>
+      <path d="M100 90 L 130 110"/>
+      <path d="M100 110 L 70 130"/>
+      <path d="M100 130 L 130 150"/>
+    </svg>
+  </div>
+  <div class="leaf leaf-2">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B4623D" stroke-width="1">
+      <path d="M120 20 C 180 60, 210 140, 120 220 C 30 140, 60 60, 120 20 Z"/>
+      <path d="M120 30 L 120 215"/>
+      <path d="M120 80 L 80 100"/>
+      <path d="M120 100 L 165 125"/>
+      <path d="M120 130 L 80 155"/>
+      <path d="M120 155 L 165 180"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <header class="section-head">
+      <div class="section-eyebrow"><span class="dot"></span>How we work</div>
+      <h2>Eight services. <em>One operating principle.</em></h2>
+      <p>Understand the room. Name the truth. Design the smallest intervention that will move it.</p>
+    </header>
+    <div class="svc-flow">
+      <div class="svc">
+        <div class="svc-num">i.</div>
+        <h3>Executive <em>coaching</em></h3>
+        <p>One-on-one and team coaching for chief executives and the leaders they are betting on. Marshall Goldsmith stakeholder-centered method.</p>
+        <span class="svc-tag">senior-led · confidential</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">ii.</div>
+        <h3>Organizational <em>design</em></h3>
+        <p>Structure, decision rights, span of control. The org chart re-shaped so strategy can run through it on Monday morning.</p>
+        <span class="svc-tag">diagnostic · grounded</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">iii.</div>
+        <h3>Talent &amp; <em>succession</em></h3>
+        <p>Identifying the executives of your second decade. Succession runways that survive a CEO transition.</p>
+        <span class="svc-tag">long horizon</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">iv.</div>
+        <h3>Performance <em>systems</em></h3>
+        <p>Aligning individual goals to strategy in a way leaders actually adopt, because it makes the week easier, not harder.</p>
+        <span class="svc-tag">adopted, not imposed</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">v.</div>
+        <h3>Culture &amp; <em>engagement</em></h3>
+        <p>Diagnose the gap between the culture you describe and the one your people experience. Close it gently.</p>
+        <span class="svc-tag">listening work</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">vi.</div>
+        <h3>Diversity &amp; <em>inclusion</em></h3>
+        <p>Beyond the policy. Into the practice. Measured in retention and promotion, not statements.</p>
+        <span class="svc-tag">measured, real</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">vii.</div>
+        <h3>Senior <em>assessments</em></h3>
+        <p>Hogan, MBTI, three-sixties, bespoke. Read by clinicians and coaches, never parsed by a tool alone.</p>
+        <span class="svc-tag">human-read</span>
+      </div>
+      <div class="svc">
+        <div class="svc-num">viii.</div>
+        <h3>Mental health <em>at work</em></h3>
+        <p>The foundation, not the perk. Programme design, manager literacy, confidential pathways, crisis support.</p>
+        <span class="svc-tag">clinical · foundational</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-band">
+  <div class="blob-bg"></div>
+  <div class="wrap">
+    <div class="qm">"</div>
+    <blockquote>The hardest part of any transformation is the part you <em>cannot put in a slide.</em> That is exactly where Growth Junction works.</blockquote>
+    <div class="quote-cite"><span class="av"></span>Chief People Officer, UAE-listed financial services</div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="wrap">
+    <div class="industries-inner">
+      <header class="section-head">
+        <div class="section-eyebrow"><span class="dot"></span>Where we have sat</div>
+        <h2>Rooms we have <em>worked in.</em></h2>
+      </header>
+      <div class="ind-cloud">
+        <span class="ind-leaf"><span class="seed"></span>Banking</span>
+        <span class="ind-leaf"><span class="seed"></span>Telecommunications</span>
+        <span class="ind-leaf"><span class="seed"></span>Energy</span>
+        <span class="ind-leaf"><span class="seed"></span>Healthcare</span>
+        <span class="ind-leaf"><span class="seed"></span>FMCG</span>
+        <span class="ind-leaf"><span class="seed"></span>Insurance</span>
+        <span class="ind-leaf"><span class="seed"></span>Software &amp; Technology</span>
+        <span class="ind-leaf"><span class="seed"></span>Academia</span>
+        <span class="ind-leaf"><span class="seed"></span>Global Development</span>
+        <span class="ind-leaf"><span class="seed"></span>Donor Agencies</span>
+        <span class="ind-leaf"><span class="seed"></span>Utilities</span>
+        <span class="ind-leaf"><span class="seed"></span>Textile</span>
+        <span class="ind-leaf"><span class="seed"></span>Advertising</span>
+        <span class="ind-leaf"><span class="seed"></span>Think Tanks</span>
+        <span class="ind-leaf"><span class="seed"></span>Development Sector</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="salon">
+  <div class="salon-blob sb-1"></div>
+  <div class="salon-blob sb-2"></div>
+  <div class="wrap salon-content">
+    <div class="section-eyebrow"><span class="dot"></span>A standing invitation</div>
+    <h2>If something on this page made you <em>pause,</em> that is usually the signal.</h2>
+    <p>Thirty minutes. No deck. No pitch. We will tell you, plainly, whether we are the right people for the work in front of you.</p>
+    <a href="#" class="hero-cta">Begin a conversation <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a href="#" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4 C 35 6, 44 14, 44 24 C 44 36, 34 44, 24 44 C 14 44, 4 36, 4 24 C 4 14, 14 6, 24 4 Z" fill="#F6F0E2"/>
+            <path d="M16 30 C 18 22, 22 18, 24 14 C 26 18, 30 22, 32 30 C 28 28, 20 28, 16 30 Z" fill="#2D2A24"/>
+          </svg>
+        </span>
+        <span class="brand-name">
+          <span class="n">Growth Junction</span>
+          <span class="t">a place for the work</span>
+        </span>
+      </a>
+      <span style="font-style:italic;font-size:15px">Dubai · Karachi · Bangkok</span>
+      <a href="mailto:info@growthjunction.ae" style="font-style:italic;font-size:15px">info@growthjunction.ae</a>
+    </div>
+    <div class="foot-divider"></div>
+    <div class="foot-tag">
+      <span>© 2026 Growth Junction. Senior advisory in residence.</span>
+      <span>People &amp; Org Development · Mental Health at Work</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
