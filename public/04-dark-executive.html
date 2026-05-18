@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Dark Executive</title>
+<style>
+  :root{
+    --ink:#F4F4F6;
+    --bg:#0A0A0F;
+    --panel:#12131A;
+    --panel-2:#1A1C26;
+    --border:#23252F;
+    --accent:#5B8AFF;
+    --accent-2:#7CA9FF;
+    --muted:#7A7E8C;
+    --glow:rgba(91,138,255,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Inter","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{background:
+    radial-gradient(800px 500px at 50% -10%, rgba(91,138,255,.12) 0%, transparent 60%),
+    radial-gradient(700px 400px at 90% 100%, rgba(91,138,255,.08) 0%, transparent 60%),
+    var(--bg);
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  nav{padding:28px 32px;max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+  .brand-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0A0A0F;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:0 0 24px var(--glow)}
+  .brand-name{font-weight:600;font-size:17px;letter-spacing:-.01em}
+  nav ul{display:flex;gap:32px;list-style:none;font-size:14px;color:var(--muted)}
+  nav a{color:var(--muted);text-decoration:none}
+  nav a:hover{color:var(--ink)}
+  .nav-cta{padding:9px 18px;background:var(--ink);color:var(--bg)!important;border-radius:6px;font-weight:500}
+
+  .hero{padding:140px 0 120px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);margin-bottom:32px;background:rgba(255,255,255,.02)}
+  .pill .led{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+  .hero h1{font-size:84px;line-height:1.02;letter-spacing:-.035em;font-weight:600;max-width:1000px;margin:0 auto 28px;background:linear-gradient(180deg,#fff 0%,#9aa0b8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:20px;color:var(--muted);max-width:640px;margin:0 auto 48px;line-height:1.55}
+  .hero-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:var(--ink);color:var(--bg);border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s}
+  .hero-cta:hover{transform:translateY(-1px)}
+  .hero-meta{margin-top:64px;display:flex;justify-content:center;gap:48px;font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .hero-meta span{display:inline-flex;align-items:center;gap:8px}
+  .hero-meta span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent)}
+
+  .section-head{max-width:760px;margin:0 auto 64px;text-align:center}
+  .section-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .section-head h2{font-size:48px;line-height:1.1;letter-spacing:-.02em;font-weight:600;margin-bottom:16px}
+  .section-head p{font-size:17px;color:var(--muted);line-height:1.65}
+
+  .services{padding:120px 0;border-top:1px solid var(--border)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  .svc{background:var(--panel);padding:36px 32px;transition:background .2s;cursor:pointer}
+  .svc:hover{background:var(--panel-2)}
+  .svc-num{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);letter-spacing:.1em;margin-bottom:24px}
+  .svc h3{font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:-.01em;color:var(--ink)}
+  .svc p{font-size:14px;color:var(--muted);line-height:1.65}
+
+  .stats{padding:100px 0;border-top:1px solid var(--border)}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  .stat-cell{background:var(--panel);padding:40px 28px;text-align:left}
+  .stat-num{font-size:48px;font-weight:600;letter-spacing:-.02em;background:linear-gradient(180deg,#fff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .stat-label{margin-top:10px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+
+  .pillars{padding:120px 0;border-top:1px solid var(--border)}
+  .pillars-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .pillar{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:44px 36px;position:relative;overflow:hidden}
+  .pillar::before{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(135deg,rgba(91,138,255,.4),transparent 60%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.5}
+  .pillar-tag{font-family:"SF Mono",ui-monospace,monospace;font-size:11px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+  .pillar h3{font-size:28px;font-weight:600;letter-spacing:-.015em;margin-bottom:14px}
+  .pillar > p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.65}
+  .pillar ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--ink);opacity:.85;border-top:1px solid var(--border);padding-top:20px}
+  .pillar li{display:flex;align-items:center;gap:10px}
+  .pillar li::before{content:"›";color:var(--accent);font-size:14px}
+
+  .industries{padding:100px 0;border-top:1px solid var(--border);text-align:center}
+  .industries h3{font-size:13px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px}
+  .ind-flow{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:920px;margin:0 auto}
+  .ind-chip{padding:8px 18px;border:1px solid var(--border);border-radius:999px;font-size:14px;color:var(--ink);background:var(--panel);transition:all .15s}
+  .ind-chip:hover{border-color:var(--accent);color:var(--accent)}
+
+  .cta-band{padding:140px 0;text-align:center;border-top:1px solid var(--border);position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 50%,var(--glow),transparent 70%)}
+  .cta-band > *{position:relative}
+  .cta-band h2{font-size:64px;line-height:1.05;letter-spacing:-.025em;font-weight:600;max-width:900px;margin:0 auto 24px;background:linear-gradient(180deg,#fff 0%,#7A7E8C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cta-band p{font-size:18px;color:var(--muted);max-width:540px;margin:0 auto 40px}
+
+  footer{padding:48px 0;border-top:1px solid var(--border);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="brand">
+    <span class="brand-mark">G</span>
+    <span class="brand-name">Growth Junction</span>
+  </a>
+  <ul>
+    <li><a href="#">Practice</a></li>
+    <li><a href="#">Method</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Notes</a></li>
+    <li><a href="#" class="nav-cta">Book a call</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="pill"><span class="led"></span>Now accepting 4 senior engagements · Q3 2026</div>
+    <h1>The advisory practice for the people decisions that decide the strategy.</h1>
+    <p>We work with chief executives, boards, and their leadership teams on the parts of transformation that do not fit in a deck. Quiet. Confidential. Senior-led.</p>
+    <a href="#" class="hero-cta">Book a discovery call →</a>
+    <div class="hero-meta">
+      <span>Dubai</span>
+      <span>Karachi</span>
+      <span>Bangkok</span>
+      <span>Est. 2021</span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Practice areas</div>
+      <h2>Eight services. One operating principle.</h2>
+      <p>Every engagement starts the same way: understand the room, name the truth, design the smallest intervention that will move it.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="svc-num">01 / EXEC</div><h3>Executive coaching</h3><p>One-on-one and team coaching for CEOs, CXOs, and the leaders they are betting on.</p></div>
+      <div class="svc"><div class="svc-num">02 / OD</div><h3>Organizational design</h3><p>Structure, decision rights, span of control. Re-shape so strategy can run through it.</p></div>
+      <div class="svc"><div class="svc-num">03 / TAL</div><h3>Talent &amp; succession</h3><p>High-potential identification, succession runways, leadership programmes that survive the rollout.</p></div>
+      <div class="svc"><div class="svc-num">04 / PERF</div><h3>Performance systems</h3><p>Aligning individual goals to strategy in a way leaders actually use, not the framework that sits on a shelf.</p></div>
+      <div class="svc"><div class="svc-num">05 / CULT</div><h3>Culture &amp; engagement</h3><p>Diagnose the gap between the culture you describe and the one your people experience.</p></div>
+      <div class="svc"><div class="svc-num">06 / DEI</div><h3>DEI strategy</h3><p>Beyond policy. Building organisations that genuinely benefit from the difference they hire.</p></div>
+      <div class="svc"><div class="svc-num">07 / DIAG</div><h3>Assessments</h3><p>Hogan, MBTI, 360s, bespoke instruments. Read by clinicians and coaches, not parsed by a tool.</p></div>
+      <div class="svc"><div class="svc-num">08 / WELL</div><h3>Mental health at work</h3><p>EAP design, manager training, and well-being programmes that take the work seriously.</p></div>
+      <div class="svc" style="background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:flex-start"><div class="svc-num">+ CUSTOM</div><h3>Bespoke engagements</h3><p>The problem in front of you may not look like a service line. Bring it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">By the numbers</div>
+      <h2>Twenty years of practice, distilled.</h2>
+    </div>
+    <div class="stat-row">
+      <div class="stat-cell"><div class="stat-num">2,000+</div><div class="stat-label">Senior coachees</div></div>
+      <div class="stat-cell"><div class="stat-num">20<span style="opacity:.6">y</span></div><div class="stat-label">Years in practice</div></div>
+      <div class="stat-cell"><div class="stat-num">15</div><div class="stat-label">Industries served</div></div>
+      <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Regional hubs</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Two practices</div>
+      <h2>People development. And the well-being it stands on.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-tag">Practice 01</div>
+        <h3>People &amp; Org Development</h3>
+        <p>The classical OD work. Structure, leadership, talent, performance, culture. Senior-led. Confidential. Designed for the rooms where the real decisions get made.</p>
+        <ul>
+          <li>Executive and team coaching</li>
+          <li>Organizational design and re-design</li>
+          <li>Talent management and succession</li>
+          <li>Performance and engagement systems</li>
+          <li>DEI strategy and execution</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-tag">Practice 02</div>
+        <h3>Mental Health &amp; Well-being</h3>
+        <p>Most OD shops treat well-being as an add-on. We treat it as the foundation. Without it, every other intervention is renting performance you cannot keep.</p>
+        <ul>
+          <li>PAP design and implementation</li>
+          <li>Manager mental-health literacy</li>
+          <li>Confidential counselling pathways</li>
+          <li>Stress, burnout, resilience programmes</li>
+          <li>Crisis response and post-incident support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="wrap">
+    <h3>Rooms we have worked in</h3>
+    <div class="ind-flow">
+      <span class="ind-chip">Banking</span><span class="ind-chip">Telecommunications</span><span class="ind-chip">Energy</span>
+      <span class="ind-chip">Healthcare</span><span class="ind-chip">FMCG</span><span class="ind-chip">Insurance</span>
+      <span class="ind-chip">Software &amp; Technology</span><span class="ind-chip">Academia</span>
+      <span class="ind-chip">Global Development</span><span class="ind-chip">Donor Agencies</span>
+      <span class="ind-chip">Utilities</span><span class="ind-chip">Textile</span>
+      <span class="ind-chip">Advertising</span><span class="ind-chip">Think Tanks</span>
+      <span class="ind-chip">Development Sector</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>If the strategy depends on the humans executing it, the work is human before it is anything else.</h2>
+    <p>Thirty minutes. On the record or off it. We will tell you whether we are the right partner for it.</p>
+    <a href="#" class="hero-cta">Book a discovery call →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%">
+    <span>© 2026 Growth Junction · Dubai · Karachi · Bangkok</span>
+    <span>info@growthjunction.ae</span>
+  </div>
+</footer>
+
+</body>
+</html>

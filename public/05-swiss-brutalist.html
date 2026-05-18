@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Swiss / Brutalist</title>
+<style>
+  :root{
+    --ink:#0A0A0A;
+    --bg:#F4F1EA;
+    --paper:#FFFFFF;
+    --accent:#E03B2C;
+    --muted:#5C5C5C;
+    --rule:#0A0A0A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Helvetica Neue","Inter",Arial,sans-serif;font-size:15px;line-height:1.4;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+
+  nav{padding:24px 40px;border-bottom:2px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+  .brand{font-weight:900;font-size:14px;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink)}
+  .brand-mark{width:32px;height:32px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900}
+  nav ul{list-style:none;display:flex;gap:32px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px}
+  nav a:hover{border-bottom-color:var(--ink)}
+
+  .meta-bar{padding:14px 40px;border-bottom:1px solid var(--rule);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:48px}
+
+  .hero{padding:120px 0 80px;position:relative}
+  .hero h1{font-size:clamp(72px,11vw,180px);line-height:.92;letter-spacing:-.04em;font-weight:900;text-transform:uppercase;max-width:1300px}
+  .hero h1 .accent{color:var(--accent)}
+  .hero-foot{margin-top:64px;display:grid;grid-template-columns:1fr 2fr 1fr;gap:48px;border-top:2px solid var(--rule);padding-top:32px;align-items:start}
+  .hero-foot .label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .hero-foot p{font-size:17px;line-height:1.5;max-width:600px}
+  .hero-foot .cta{display:inline-block;padding:14px 24px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-decoration:none}
+
+  .stat-strip{border-top:2px solid var(--rule);border-bottom:2px solid var(--rule);padding:36px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat-strip > div{padding:0 32px;border-right:1px solid var(--rule)}
+  .stat-strip > div:last-child{border-right:0}
+  .stat-strip .num{font-size:72px;font-weight:900;letter-spacing:-.04em;line-height:1}
+  .stat-strip .lbl{margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  .section{padding:120px 0;border-bottom:2px solid var(--rule)}
+  .section-head{display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:start;margin-bottom:64px}
+  .section-head .num{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+  .section-head h2{font-size:clamp(48px,5vw,84px);line-height:1;letter-spacing:-.03em;font-weight:900;text-transform:uppercase}
+
+  .svc-list{border-top:1px solid var(--rule)}
+  .svc-row{display:grid;grid-template-columns:80px 280px 1fr 120px;gap:48px;padding:32px 0;border-bottom:1px solid var(--rule);align-items:start;transition:background .15s;cursor:pointer}
+  .svc-row:hover{background:var(--paper)}
+  .svc-row .n{font-size:14px;font-weight:700;letter-spacing:.15em;color:var(--muted)}
+  .svc-row .t{font-size:24px;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+  .svc-row .d{font-size:15px;line-height:1.55;color:var(--ink)}
+  .svc-row .arrow{font-size:24px;text-align:right;font-weight:700}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--rule);border-bottom:2px solid var(--rule);background:var(--ink)}
+  .pillar{padding:64px 48px;background:var(--bg);border-right:1px solid var(--ink)}
+  .pillar:last-child{background:var(--ink);color:var(--bg);border-right:0}
+  .pillar .tag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;color:var(--muted)}
+  .pillar:last-child .tag{color:var(--bg);opacity:.6}
+  .pillar h3{font-size:42px;line-height:1.05;letter-spacing:-.02em;font-weight:900;text-transform:uppercase;margin-bottom:24px}
+  .pillar p{font-size:16px;line-height:1.6;margin-bottom:24px}
+  .pillar ul{list-style:none;font-size:14px;line-height:2}
+  .pillar li{border-bottom:1px solid currentColor;padding:8px 0;display:flex;justify-content:space-between}
+  .pillar:last-child li{border-color:rgba(255,255,255,.2)}
+  .pillar li::after{content:"+";font-weight:900}
+
+  .industries{display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start}
+  .industries h3{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+  .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+  .ind-grid > div{padding:18px 0;border-bottom:1px solid var(--rule);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-.01em}
+
+  .cta-band{padding:120px 40px;text-align:center;background:var(--ink);color:var(--bg)}
+  .cta-band h2{font-size:clamp(48px,7vw,120px);line-height:.95;letter-spacing:-.035em;font-weight:900;text-transform:uppercase;max-width:1200px;margin:0 auto 32px}
+  .cta-band h2 .accent{color:var(--accent)}
+  .cta-band .cta{display:inline-block;padding:18px 40px;background:var(--accent);color:var(--bg);font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;margin-top:24px}
+
+  footer{padding:32px 40px;border-top:2px solid var(--rule);display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="brand"><span class="brand-mark">G</span>Growth Junction</a>
+  <ul>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Method</a></li>
+    <li><a href="#">People</a></li>
+    <li><a href="#">Notes</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="meta-bar">
+  <span>Issue 01 · Dubai 2026</span>
+  <span>People &amp; Organizational Development</span>
+  <span>Estd. 2021</span>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>The work of leadership <span class="accent">is the work of becoming.</span></h1>
+    <div class="hero-foot">
+      <div>
+        <div class="label">Practice</div>
+        <p>Senior advisory<br>Dubai · Karachi · Bangkok</p>
+      </div>
+      <div>
+        <div class="label">Statement</div>
+        <p>We work with chief executives, boards, and the leaders they are betting on. The work that lives between the deck and the all-hands. Quiet, rigorous, results-led.</p>
+      </div>
+      <div>
+        <div class="label">Begin</div>
+        <a href="#" class="cta">Discovery →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div><div class="num">2K+</div><div class="lbl">Coachees</div></div>
+  <div><div class="num">20Y</div><div class="lbl">Practice</div></div>
+  <div><div class="num">15</div><div class="lbl">Industries</div></div>
+  <div><div class="num">3</div><div class="lbl">Cities</div></div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">§ 01 / Services</div>
+      <h2>Eight pillars. One operating principle.</h2>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row"><div class="n">01</div><div class="t">Executive coaching</div><div class="d">One-on-one and team coaching for CEOs, CXOs, and the leaders they are betting on. Marshall Goldsmith methodology.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">02</div><div class="t">Organizational design</div><div class="d">Structure, decision rights, span of control. Re-shape so strategy can run through the org chart.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">03</div><div class="t">Talent &amp; succession</div><div class="d">High-potential identification, succession runways, leadership programmes that survive the rollout.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">04</div><div class="t">Performance systems</div><div class="d">Aligning individual goals to strategy in a way leaders actually use, not the framework on the shelf.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">05</div><div class="t">Culture &amp; engagement</div><div class="d">Diagnose the gap between the culture you describe and the one your people experience.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">06</div><div class="t">DEI strategy</div><div class="d">Beyond policy. Building organisations that genuinely benefit from the difference they hire.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">07</div><div class="t">Assessments</div><div class="d">Hogan, MBTI, 360s, bespoke instruments. Read by clinicians and coaches, not parsed by a tool.</div><div class="arrow">→</div></div>
+      <div class="svc-row"><div class="n">08</div><div class="t">Mental health at work</div><div class="d">EAP design, manager training, well-being programmes. The foundation, not the perk.</div><div class="arrow">→</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="pillar">
+    <div class="tag">Practice 01 / OD</div>
+    <h3>People &amp; Organizational Development</h3>
+    <p>The classical OD work. Structure, leadership, talent, performance, culture. Senior-led. Confidential. Designed for the rooms where the real decisions get made.</p>
+    <ul>
+      <li>Executive coaching</li>
+      <li>Org design</li>
+      <li>Talent &amp; succession</li>
+      <li>Performance systems</li>
+      <li>DEI strategy</li>
+    </ul>
+  </div>
+  <div class="pillar">
+    <div class="tag">Practice 02 / Well-being</div>
+    <h3>Mental Health &amp; Well-being</h3>
+    <p>Most OD shops treat well-being as an add-on. We treat it as the foundation. Without it, every other intervention is renting performance you cannot keep.</p>
+    <ul>
+      <li>PAP design</li>
+      <li>Manager mental-health literacy</li>
+      <li>Confidential counselling</li>
+      <li>Burnout &amp; resilience</li>
+      <li>Crisis response</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="industries">
+      <h3>§ 02 / Industries</h3>
+      <div class="ind-grid">
+        <div>Banking</div><div>Telecoms</div><div>Energy</div>
+        <div>Healthcare</div><div>FMCG</div><div>Insurance</div>
+        <div>Software &amp; Tech</div><div>Academia</div><div>Global Dev</div>
+        <div>Donor Agencies</div><div>Utilities</div><div>Textile</div>
+        <div>Advertising</div><div>Think Tanks</div><div>Dev Sector</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>If you are reading this on a hard week, <span class="accent">call.</span></h2>
+  <p style="font-size:16px;letter-spacing:.04em;opacity:.7;max-width:560px;margin:0 auto">Thirty minutes. No deck, no pitch.</p>
+  <a href="#" class="cta">Book a discovery →</a>
+</section>
+
+<footer>
+  <span>© 2026 Growth Junction</span>
+  <span>Dubai · Karachi · Bangkok</span>
+  <span>info@growthjunction.ae</span>
+</footer>
+
+</body>
+</html>

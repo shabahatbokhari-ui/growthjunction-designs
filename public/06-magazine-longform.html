@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Junction — Magazine / Long-form</title>
+<style>
+  :root{
+    --ink:#1A1812;
+    --bg:#F8F4EB;
+    --paper:#FFFCF5;
+    --accent:#7C2429;
+    --rule:#D4CCB8;
+    --muted:#76705F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .sans{font-family:"Inter","Helvetica Neue",Arial,sans-serif}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* Masthead */
+  .masthead{padding:20px 0;border-bottom:2px solid var(--ink);text-align:center}
+  .masthead-top{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 32px;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .masthead h1{font-size:64px;letter-spacing:-.02em;font-weight:400;line-height:1}
+  .masthead h1 .ornate{font-style:italic;color:var(--accent)}
+  .masthead-bottom{margin-top:12px;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:center;gap:32px}
+
+  nav{padding:14px 0;border-bottom:1px solid var(--rule);text-align:center}
+  nav ul{list-style:none;display:flex;justify-content:center;gap:40px;font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding:6px 0}
+  nav a:hover{border-bottom-color:var(--accent)}
+
+  /* Hero feature */
+  .feature{padding:64px 0 80px;border-bottom:1px solid var(--rule)}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .feature-meta{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .feature h2{font-size:64px;line-height:1.04;letter-spacing:-.02em;font-weight:400;margin-bottom:24px}
+  .feature h2 em{font-style:italic;color:var(--accent)}
+  .feature .standfirst{font-size:22px;line-height:1.5;color:var(--muted);font-style:italic;margin-bottom:32px;max-width:540px}
+  .feature .byline{font-family:"Inter",sans-serif;font-size:13px;letter-spacing:.04em;color:var(--ink);border-top:1px solid var(--rule);padding-top:16px;margin-top:32px;max-width:480px}
+  .feature .byline b{font-weight:600}
+  .feature-image{aspect-ratio:4/5;background:
+    linear-gradient(180deg, rgba(124,36,41,.1) 0%, rgba(26,24,18,.6) 100%),
+    linear-gradient(135deg, #c8b89a 0%, #8a7858 100%);
+    position:relative;overflow:hidden}
+  .feature-image::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent 60%)}
+  .image-caption{position:absolute;bottom:20px;left:24px;right:24px;font-family:"Inter",sans-serif;font-size:12px;color:#fff;letter-spacing:.04em}
+
+  /* Drop cap intro */
+  .intro{padding:80px 0;border-bottom:1px solid var(--rule)}
+  .intro-inner{max-width:760px;margin:0 auto;text-align:left}
+  .intro .label{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;text-align:center}
+  .intro p{font-size:20px;line-height:1.7;margin-bottom:24px}
+  .intro p:first-of-type::first-letter{font-size:96px;line-height:.85;float:left;margin:6px 12px -4px 0;color:var(--accent);font-weight:400;font-family:Georgia,serif}
+  .intro p:last-of-type{font-size:24px;font-style:italic;color:var(--muted);max-width:600px;text-align:center;margin:48px auto 0}
+
+  /* Section heading */
+  .sect-head{padding:80px 0 48px;text-align:center}
+  .sect-head .num{font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .sect-head h2{font-size:56px;letter-spacing:-.02em;font-weight:400;line-height:1.05}
+  .sect-head h2 em{font-style:italic}
+  .sect-head .rule{width:60px;height:1px;background:var(--ink);margin:32px auto 0}
+
+  /* Services as essays */
+  .essays{padding:32px 0 80px;border-bottom:1px solid var(--rule)}
+  .essay-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px 80px}
+  .essay{padding:24px 0;border-top:1px solid var(--rule)}
+  .essay .ess-num{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .essay h3{font-size:28px;line-height:1.15;letter-spacing:-.01em;font-weight:400;margin-bottom:14px}
+  .essay h3 em{font-style:italic}
+  .essay p{font-size:17px;line-height:1.6;color:var(--ink)}
+  .essay .more{display:inline-block;margin-top:14px;font-family:"Inter",sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+
+  /* Two columns / pillars */
+  .columns{padding:80px 0;background:var(--paper);border-bottom:1px solid var(--rule)}
+  .col-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .col-grid > div{padding-right:48px}
+  .col-grid .col-tag{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .col-grid h3{font-size:36px;line-height:1.1;letter-spacing:-.015em;font-weight:400;margin-bottom:18px}
+  .col-grid h3 em{font-style:italic}
+  .col-grid p{font-size:17px;line-height:1.65;margin-bottom:16px}
+  .col-grid ul{list-style:none;font-size:16px;margin-top:24px;border-top:1px solid var(--rule);padding-top:20px}
+  .col-grid li{padding:6px 0;display:flex;gap:12px;align-items:baseline}
+  .col-grid li::before{content:"§";color:var(--accent);font-size:14px;font-weight:700}
+
+  /* Pull quote */
+  .pullquote{padding:120px 0;text-align:center;border-bottom:1px solid var(--rule)}
+  .pullquote .qmark{font-family:Georgia,serif;font-size:120px;line-height:.4;color:var(--accent);margin-bottom:24px}
+  .pullquote blockquote{font-size:42px;line-height:1.3;font-style:italic;font-weight:400;max-width:880px;margin:0 auto 32px;letter-spacing:-.01em}
+  .pullquote .qcite{font-family:"Inter",sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .pullquote .qcite b{font-weight:600;color:var(--ink)}
+
+  /* Industries / rooms */
+  .rooms{padding:80px 0;border-bottom:1px solid var(--rule)}
+  .rooms-head{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:24px}
+  .rooms h3{font-size:36px;text-align:center;font-weight:400;letter-spacing:-.01em;margin-bottom:48px}
+  .rooms-list{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 32px;max-width:900px;margin:0 auto;font-size:17px}
+  .rooms-list span{padding:4px 0;border-bottom:1px solid var(--rule)}
+
+  /* CTA */
+  .cta-band{padding:120px 0;text-align:center;background:var(--ink);color:var(--bg)}
+  .cta-band h2{font-size:56px;line-height:1.1;letter-spacing:-.02em;font-weight:400;max-width:880px;margin:0 auto 24px;color:var(--bg)}
+  .cta-band h2 em{font-style:italic;color:#D9A86B}
+  .cta-band p{font-family:"Inter",sans-serif;font-size:15px;letter-spacing:.04em;opacity:.7;max-width:520px;margin:0 auto 40px}
+  .cta-band .cta{display:inline-block;padding:16px 32px;background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+
+  footer{padding:32px 0;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Vol. I · No. 01</span>
+    <span>18 May 2026 · Dubai</span>
+    <span>Subscribe</span>
+  </div>
+  <h1>Growth <span class="ornate">Junction</span></h1>
+  <div class="masthead-bottom">
+    <span>People &amp; Org Development</span>
+    <span>·</span>
+    <span>Mental Health at Work</span>
+    <span>·</span>
+    <span>Senior Advisory</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">The Practice</a></li>
+    <li><a href="#">The Method</a></li>
+    <li><a href="#">The Team</a></li>
+    <li><a href="#">Field Notes</a></li>
+    <li><a href="#">Begin</a></li>
+  </ul>
+</nav>
+
+<section class="feature wrap">
+  <div class="feature-grid">
+    <div>
+      <div class="feature-meta">Founder's Letter · Issue 01</div>
+      <h2>Strategy is the easy part. <em>The humans are the work.</em></h2>
+      <p class="standfirst">A note on why we started Growth Junction, what we have learned in twenty years inside boardrooms, and the kettle we keep on for whoever needs a real conversation.</p>
+      <a href="#" style="font-family:Inter,sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px">Read the letter →</a>
+      <div class="byline">By <b>Sulemen Ansar Khan</b><br>Founder, Growth Junction · Marshall Goldsmith Certified · Twenty years inside the room</div>
+    </div>
+    <div class="feature-image">
+      <div class="image-caption">Photograph: morning light, Dubai office, 06:42</div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-inner">
+    <div class="label">A short introduction</div>
+    <p>We are a small advisory practice. We do the work that lives between the strategy deck and the all-hands meeting. The conversations the executives cannot have with each other, the structures that need to bend for the strategy to breathe, the well-being foundation without which none of the rest survives a hard quarter.</p>
+    <p>We have spent twenty years in the rooms where these decisions get made, inside and outside the company. We know the difference between a deck that survives the rollout and one that does not. We will tell you, plainly, which one you are holding.</p>
+    <p>If your strategy depends on the people executing it, the work is human before it is anything else.</p>
+  </div>
+</section>
+
+<header class="sect-head">
+  <div class="num">§ I · The Practice</div>
+  <h2>Eight services. <em>One operating principle.</em></h2>
+  <div class="rule"></div>
+</header>
+
+<section class="essays wrap">
+  <div class="essay-grid">
+    <article class="essay">
+      <div class="ess-num">01 · Executive Coaching</div>
+      <h3>The conversation <em>only you can have.</em></h3>
+      <p>One-on-one and team coaching for chief executives and the leaders they are betting on. Marshall Goldsmith stakeholder-centered method. The work is confidential, unhurried, and judged on what changes in the room, not what is written on the slide.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">02 · Organizational Design</div>
+      <h3>Re-shaping the org chart so the <em>strategy can run through it.</em></h3>
+      <p>Structure, decision rights, span of control. We help leaders see the difference between a plan that sounds elegant on the page and one that survives Monday morning.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">03 · Talent &amp; Succession</div>
+      <h3>The leaders <em>you have not yet promoted.</em></h3>
+      <p>Identifying the executives of your second decade, building succession runways that survive a CEO transition, and leadership programmes that are still in use two years after launch.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">04 · Performance Systems</div>
+      <h3>The framework <em>that gets used,</em> not the one on the shelf.</h3>
+      <p>Aligning individual goals to strategy in a way leaders adopt because it makes their week easier, not harder. The systems and the rituals that hold them up.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">05 · Culture &amp; Engagement</div>
+      <h3>The gap between the culture you <em>describe</em> and the one your people <em>experience.</em></h3>
+      <p>Diagnostic work, listening sessions, and the small interventions that close that gap before it becomes the story of your year.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">06 · DEI Strategy</div>
+      <h3>Beyond the policy. <em>Into the practice.</em></h3>
+      <p>Building organisations that genuinely benefit from the difference they hire. Quiet work, measured in retention and promotion data, not statements.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">07 · Assessments</div>
+      <h3>Globally recognised instruments. <em>Locally read by humans.</em></h3>
+      <p>Hogan, MBTI, 360s, bespoke. Interpreted by clinicians and coaches, never parsed by a tool. The conversation that follows the report is the actual product.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+    <article class="essay">
+      <div class="ess-num">08 · Mental Health at Work</div>
+      <h3>The foundation, <em>not the perk.</em></h3>
+      <p>EAP design, manager training, well-being programmes, crisis support. Without this layer, every other intervention is renting performance you cannot keep.</p>
+      <a href="#" class="more">Continue reading</a>
+    </article>
+  </div>
+</section>
+
+<section class="columns wrap">
+  <header class="sect-head" style="padding-top:0">
+    <div class="num">§ II · The Two Practices</div>
+    <h2>People development, <em>and the well-being it stands on.</em></h2>
+    <div class="rule"></div>
+  </header>
+  <div class="col-grid">
+    <div>
+      <div class="col-tag">Practice 01</div>
+      <h3>People &amp; <em>Organizational Development</em></h3>
+      <p>The classical OD work. Structure, leadership, talent, performance, culture. Senior-led, confidential, designed for the rooms where the real decisions are made.</p>
+      <ul>
+        <li>Executive and team coaching</li>
+        <li>Organizational design and re-design</li>
+        <li>Talent management and succession</li>
+        <li>Performance and engagement systems</li>
+        <li>DEI strategy and execution</li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-tag">Practice 02</div>
+      <h3>Mental Health &amp; <em>Well-being at Work</em></h3>
+      <p>Most OD shops treat well-being as an add-on. We treat it as the foundation. Without it, the rest of the work cannot survive a hard quarter, let alone a hard year.</p>
+      <ul>
+        <li>PAP design and implementation</li>
+        <li>Manager mental-health literacy training</li>
+        <li>Confidential counselling pathways</li>
+        <li>Stress, burnout, and resilience programmes</li>
+        <li>Crisis response and post-incident support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="pullquote">
+  <div class="wrap">
+    <div class="qmark">"</div>
+    <blockquote>The hardest part of any transformation is the part you cannot put in a slide. That is exactly where Growth Junction works.</blockquote>
+    <div class="qcite"><b>Chief People Officer</b> · UAE-listed financial services</div>
+  </div>
+</section>
+
+<section class="rooms">
+  <div class="wrap">
+    <div class="rooms-head">§ III · The Rooms</div>
+    <h3>Industries we have <em>worked in.</em></h3>
+    <div class="rooms-list">
+      <span>Banking</span><span>Telecommunications</span><span>Energy</span>
+      <span>Healthcare</span><span>FMCG</span><span>Insurance</span>
+      <span>Software &amp; Technology</span><span>Academia</span>
+      <span>Global Development</span><span>Donor Agencies</span>
+      <span>Utilities</span><span>Textile</span><span>Advertising</span>
+      <span>Think Tanks</span><span>Development Sector</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>If you are reading this on <em>a hard week,</em> the kettle is on.</h2>
+    <p>Thirty minutes. On the record or off it. We will tell you whether we are the right people for the work in front of you.</p>
+    <a href="#" class="cta">Book a conversation →</a>
+  </div>
+</section>
+
+<footer class="wrap" style="display:flex">
+  <span>© 2026 Growth Junction</span>
+  <span>Dubai · Karachi · Bangkok</span>
+  <span>info@growthjunction.ae</span>
+</footer>
+
+</body>
+</html>

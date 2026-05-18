@@ -7,79 +7,147 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:"Inter","Helvetica Neue",Arial,sans-serif;background:#F4F4F0;color:#1A1A1A;padding:48px 32px;line-height:1.5}
-  .wrap{max-width:1100px;margin:0 auto}
+  .wrap{max-width:1280px;margin:0 auto}
   h1{font-size:42px;letter-spacing:-.02em;font-weight:600;margin-bottom:12px}
-  .sub{font-size:18px;color:#666;margin-bottom:48px;max-width:720px;line-height:1.55}
+  .sub{font-size:18px;color:#666;margin-bottom:48px;max-width:760px;line-height:1.55}
+  .count{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:#1A1A1A;color:#fff;margin-bottom:24px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
-  .card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #E5E1D6;text-decoration:none;color:inherit;transition:transform .15s, box-shadow .15s}
+  .card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #E5E1D6;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column}
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
-  .preview{height:220px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Georgia,serif;font-size:24px;letter-spacing:.04em;text-align:center;padding:24px}
+  .preview{height:200px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Georgia,serif;font-size:22px;letter-spacing:.04em;text-align:center;padding:24px;font-weight:400}
   .p1{background:linear-gradient(135deg,#0E1A2B 0%,#3B6CB1 100%)}
   .p2{background:linear-gradient(135deg,#0A1628 0%,#2B5BA9 100%)}
   .p3{background:linear-gradient(135deg,#C76B4E 0%,#7B8F73 100%)}
-  .body{padding:28px 24px 32px}
-  .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#F2EFE7;color:#666;margin-bottom:12px}
+  .p4{background:linear-gradient(135deg,#0A0A0F 0%,#5B8AFF 100%)}
+  .p5{background:#F4F1EA;color:#0A0A0A;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-family:"Helvetica Neue",Arial,sans-serif}
+  .p5 .acc{color:#E03B2C}
+  .p6{background:linear-gradient(135deg,#F8F4EB 0%,#D4CCB8 100%);color:#1A1812;font-family:Georgia,serif}
+  .p6 em{color:#7C2429;font-style:italic}
+  .p7{background:linear-gradient(135deg,#9CAF88 0%,#7895B5 100%)}
+  .body{padding:24px 22px 28px;flex:1;display:flex;flex-direction:column}
+  .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#F2EFE7;color:#666;margin-bottom:12px;align-self:flex-start}
   h3{font-size:20px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
-  p.desc{font-size:15px;color:#555;line-height:1.55;margin-bottom:16px}
-  ul.props{list-style:none;font-size:13px;color:#444;padding-top:14px;border-top:1px solid #EEE}
+  p.desc{font-size:14px;color:#555;line-height:1.55;margin-bottom:16px;flex:1}
+  ul.props{list-style:none;font-size:12.5px;color:#444;padding-top:14px;border-top:1px solid #EEE}
   ul.props li{padding:4px 0;display:flex;gap:8px}
-  ul.props li b{font-weight:600;color:#222;min-width:64px}
-  .open{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:14px;font-weight:600;color:#2B5BA9}
-  .compare{background:#fff;border:1px solid #E5E1D6;border-radius:12px;padding:32px;margin-top:32px}
+  ul.props li b{font-weight:600;color:#222;min-width:64px;flex-shrink:0}
+  .open{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:600;color:#2B5BA9}
+  .compare{background:#fff;border:1px solid #E5E1D6;border-radius:12px;padding:32px;margin-top:32px;overflow-x:auto}
   .compare h2{font-size:22px;margin-bottom:18px}
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #EEE;vertical-align:top}
-  th{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;background:#FAFAF7}
-  td:first-child{font-weight:600;width:140px}
-  .note{margin-top:24px;font-size:14px;color:#666;background:#FAFAF7;padding:20px;border-radius:8px;border-left:3px solid #C76B4E}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:900px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #EEE;vertical-align:top}
+  th{font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:#666;background:#FAFAF7}
+  td:first-child{font-weight:600;width:120px}
+  .note{margin-top:24px;font-size:14px;color:#666;background:#FAFAF7;padding:20px;border-radius:8px;border-left:3px solid #C76B4E;line-height:1.55}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <span class="count">7 directions · pick by feel</span>
   <h1>Growth Junction · Design Direction Review</h1>
-  <p class="sub">Three contrasting directions for the new growthjunction.ae. Each is a complete, self-contained HTML mockup. Open in any browser. No setup needed. Pick the direction that feels closest, not the one that is most finished.</p>
+  <p class="sub">Seven contrasting directions for the new growthjunction.ae. Each is a complete, self-contained HTML mockup. Open in any browser. No setup needed. Spend 30 seconds per direction. Pick the one that feels closest to <em>"us"</em>, not the one most finished.</p>
 
   <div class="grid">
-    <a class="card" href="01-editorial-premium.html" target="_blank">
+    <a class="card" href="01-editorial-premium" target="_blank">
       <div class="preview p1">Editorial Premium</div>
       <div class="body">
-        <span class="tag">Direction 01</span>
+        <span class="tag">01 · Serif heritage</span>
         <h3>Editorial Premium</h3>
-        <p class="desc">Serif voice. Long-form. Reads like a journal of practice rather than a service brochure. Quiet authority.</p>
+        <p class="desc">Serif voice. Long-form. Reads like a journal of practice. Quiet authority.</p>
         <ul class="props">
-          <li><b>Feels like</b><span>HBR, BetterUp, a senior practice that does not need to shout</span></li>
-          <li><b>Best for</b><span>Buyers who care about depth, IP, and intellectual seriousness</span></li>
-          <li><b>Risk</b><span>Can read aloof. Needs strong writing in production</span></li>
+          <li><b>Feels like</b><span>HBR, BetterUp, a senior practice that does not shout</span></li>
+          <li><b>Best for</b><span>Buyers who care about depth, IP, intellectual seriousness</span></li>
+          <li><b>Risk</b><span>Can read aloof, demands strong writing</span></li>
         </ul>
         <span class="open">Open mockup →</span>
       </div>
     </a>
 
-    <a class="card" href="02-boutique-advisory.html" target="_blank">
+    <a class="card" href="02-boutique-advisory" target="_blank">
       <div class="preview p2">Boutique Advisory</div>
       <div class="body">
-        <span class="tag">Direction 02</span>
+        <span class="tag">02 · Modern advisory</span>
         <h3>Boutique Advisory</h3>
         <p class="desc">Clean sans, structured grids, case-work led. Senior advisory tone with proof above the fold.</p>
         <ul class="props">
-          <li><b>Feels like</b><span>A leaner Korn Ferry, a more confident Heidrick. Pragmatic, modern</span></li>
-          <li><b>Best for</b><span>UAE CHRO and CEO buyers who scan for proof and structure</span></li>
-          <li><b>Risk</b><span>Most "expected" of the three. Differentiation comes from copy and case work, not design</span></li>
+          <li><b>Feels like</b><span>A leaner Korn Ferry. Pragmatic, modern</span></li>
+          <li><b>Best for</b><span>UAE CHRO/CEO buyers who scan for proof and structure</span></li>
+          <li><b>Risk</b><span>Most "expected" of the seven, differentiation in copy not design</span></li>
         </ul>
         <span class="open">Open mockup →</span>
       </div>
     </a>
 
-    <a class="card" href="03-human-first.html" target="_blank">
+    <a class="card" href="03-human-first" target="_blank">
       <div class="preview p3">Human First</div>
       <div class="body">
-        <span class="tag">Direction 03</span>
+        <span class="tag">03 · Warm human</span>
         <h3>Human First</h3>
-        <p class="desc">Warm palette, big faces, quotes from real practice, founder voice anchored above the fold. Coach-led, not corporate-led.</p>
+        <p class="desc">Warm palette, big faces, quotes from real practice, founder voice anchored above the fold.</p>
         <ul class="props">
-          <li><b>Feels like</b><span>A senior practitioner you would actually call when the week is hard</span></li>
-          <li><b>Best for</b><span>Personal credibility plays. Marshall Goldsmith methodology shown, not just claimed</span></li>
-          <li><b>Risk</b><span>Closer to "coach" than "advisor". May feel light for enterprise procurement</span></li>
+          <li><b>Feels like</b><span>A senior practitioner you would call when the week is hard</span></li>
+          <li><b>Best for</b><span>Personal credibility plays, Marshall Goldsmith methodology shown</span></li>
+          <li><b>Risk</b><span>Reads more "coach" than "advisor", may feel light for procurement</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="04-dark-executive" target="_blank">
+      <div class="preview p4">Dark Executive</div>
+      <div class="body">
+        <span class="tag">04 · Premium dark</span>
+        <h3>Dark Executive</h3>
+        <p class="desc">Near-black canvas, electric blue accents, gradient text, ambient glow. Late-night strategy room.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>Linear, Vercel, McKinsey Solutions. Forward, confident</span></li>
+          <li><b>Best for</b><span>Signalling forward-thinking, buyers tired of beige advisory</span></li>
+          <li><b>Risk</b><span>Dark reads tech-coded, conservative CHROs may find it cold</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="05-swiss-brutalist" target="_blank">
+      <div class="preview p5">SWISS<br><span class="acc">/ BRUTALIST</span></div>
+      <div class="body">
+        <span class="tag">05 · Type-led</span>
+        <h3>Swiss / Brutalist</h3>
+        <p class="desc">Huge type, heavy rules, single red accent, numbered sections. Type as design system.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>Pentagram, Bloomberg Originals, FT Weekend graphics</span></li>
+          <li><b>Best for</b><span>Standing out hard, positioning as the unsentimental adult in the room</span></li>
+          <li><b>Risk</b><span>Can read cold or aggressive for Dubai HR market</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="06-magazine-longform" target="_blank">
+      <div class="preview p6">Magazine<br><em>Long-form</em></div>
+      <div class="body">
+        <span class="tag">06 · Editorial heritage</span>
+        <h3>Magazine / Long-form</h3>
+        <p class="desc">Masthead, drop caps, standfirst, pull quotes, founder's letter. Services framed as essays.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>Monocle, FT Weekend, The Atlantic, a thoughtful annual report</span></li>
+          <li><b>Best for</b><span>Founders who want the site to do the talking before the call</span></li>
+          <li><b>Risk</b><span>Copy-heavy, if Sulemen does not write the scaffold collapses</span></li>
+        </ul>
+        <span class="open">Open mockup →</span>
+      </div>
+    </a>
+
+    <a class="card" href="07-calm-therapeutic" target="_blank">
+      <div class="preview p7">Calm / Therapeutic</div>
+      <div class="body">
+        <span class="tag">07 · Well-being led</span>
+        <h3>Calm / Therapeutic</h3>
+        <p class="desc">Sage and dusty-blue palette, soft shapes, generous breathing room, mental-health pillar leads.</p>
+        <ul class="props">
+          <li><b>Feels like</b><span>Headspace meets BetterUp with clinical credibility</span></li>
+          <li><b>Best for</b><span>Lead positioning the mental-health practice, not the OD practice</span></li>
+          <li><b>Risk</b><span>Can read more wellness app than executive advisory</span></li>
         </ul>
         <span class="open">Open mockup →</span>
       </div>
@@ -87,30 +155,34 @@
   </div>
 
   <div class="compare">
-    <h2>How they differ at a glance</h2>
+    <h2>How the seven differ</h2>
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>01 · Editorial</th>
-          <th>02 · Boutique</th>
-          <th>03 · Human</th>
+          <th>01 Editorial</th>
+          <th>02 Boutique</th>
+          <th>03 Human</th>
+          <th>04 Dark</th>
+          <th>05 Swiss</th>
+          <th>06 Magazine</th>
+          <th>07 Calm</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Typography</td><td>Georgia serif lead</td><td>Inter sans, clean</td><td>Mixed serif/sans, warm</td></tr>
-        <tr><td>Palette</td><td>Cream, ink, blue, gold accent</td><td>White, ink, blue, sky</td><td>Bone, terracotta, sage, blue</td></tr>
-        <tr><td>Hero device</td><td>Editorial headline + lede</td><td>Headline + stat grid + CTA</td><td>Faces + live testimonial</td></tr>
-        <tr><td>Service grid</td><td>2 cols, numbered, prose</td><td>3 cols, iconed, hover lift</td><td>3 cols, tagged, named coach</td></tr>
-        <tr><td>Founder presence</td><td>Implicit, byline only</td><td>Hidden until Team page</td><td>Above the fold, signed</td></tr>
-        <tr><td>Production cost</td><td>High writing burden</td><td>Mid — needs proof points</td><td>High photography burden</td></tr>
-        <tr><td>Who buys it</td><td>Curious CEO, board chair</td><td>CHRO with procurement</td><td>Leader on a hard week</td></tr>
+        <tr><td>Typography</td><td>Serif</td><td>Sans</td><td>Sans + serif</td><td>Sans</td><td>Helvetica heavy</td><td>Serif body</td><td>Sans + Garamond</td></tr>
+        <tr><td>Palette</td><td>Cream, ink, blue</td><td>White, ink, blue</td><td>Bone, terracotta, sage</td><td>Black, electric blue</td><td>Cream, black, red</td><td>Newsprint, oxblood</td><td>Sage, dusty blue</td></tr>
+        <tr><td>Hero</td><td>Headline + lede</td><td>Headline + stats + CTA</td><td>Faces + live quote</td><td>Centered + glow</td><td>180px headline</td><td>Founder's letter</td><td>Soft shapes + serif</td></tr>
+        <tr><td>Founder presence</td><td>Implicit</td><td>Hidden</td><td>Above fold</td><td>Hidden</td><td>Hidden</td><td>Front page byline</td><td>Mid-page card</td></tr>
+        <tr><td>Mood</td><td>Quiet authority</td><td>Pragmatic</td><td>Warm, present</td><td>Forward, sharp</td><td>Unsentimental</td><td>Heritage, deep</td><td>Restorative</td></tr>
+        <tr><td>Production cost</td><td>High writing</td><td>Mid</td><td>High photo</td><td>Mid</td><td>Low</td><td>Very high writing</td><td>High photo + art</td></tr>
+        <tr><td>Buyer fit</td><td>Curious CEO</td><td>CHRO + procurement</td><td>Hard-week leader</td><td>Tech-fluent CEO</td><td>The contrarian</td><td>Long-cycle buyer</td><td>Mental-health lead</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="note">
-    <b>How to use these.</b> Open each in a browser. Spend 30 seconds, not 30 minutes. The first one that makes you say <em>"yes, that is us"</em> is the direction. Hybrid is fine. We can lift the hero of one onto the structure of another. The point of three contrasting directions is to surface preference, not to ship any of these as-is.
+    <b>How to use these.</b> Open each in a browser. Spend 30 seconds, not 30 minutes. The first one that makes you say <em>"yes, that is us"</em> is the direction. Hybrids welcome. We can lift the hero of one onto the structure of another. The point of seven contrasting directions is to surface preference, not to ship any of these as-is. All mockups are wireframe-fidelity: placeholder photography, illustrative copy, sample case studies. Not production designs.
   </div>
 </div>
 </body>
