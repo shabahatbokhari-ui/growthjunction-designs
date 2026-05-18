@@ -15,11 +15,14 @@ Client folder at `G:\My Drive\Claude\Clients\sulemen-khan-growthjunction\` is fo
 
 ## Workflow
 
-1. Edit / add files locally in this folder
-2. Commit with descriptive message
-3. `git push` → Cloudflare auto-rebuilds in ~30s
-4. URL stays the same: `https://growthjunction-designs.pages.dev/<file>.html`
-5. Share URL with Sulemen via WhatsApp or email
+Auto-deploy via Git is **NOT reliable** (CF Workers/Pages merge broke webhook 2026-05-18). Use Wrangler CLI instead.
+
+1. Edit files in `public/`
+2. `npm run deploy` to ship to `https://growthjunction-designs.shabahat-bokhari.workers.dev` in ~10s
+3. Or `npm run ship` to commit + push + deploy in one command
+4. Git push is for version history only, not for deploys
+
+Requires `wrangler` installed globally + authed: `npm i -g wrangler && wrangler login`
 
 ## Current state (as of 2026-05-18)
 
